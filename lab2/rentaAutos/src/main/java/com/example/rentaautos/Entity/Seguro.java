@@ -1,12 +1,32 @@
 package com.example.rentaautos.Entity;
 
-import jakarta.persistence.Entity;
-import lombok.Data;
 
-@Data
 public class Seguro {
-    private Integer idSeguro;
     private String empresaAseguradora;
     private Double coberturaMax;
     private Double tarifa;
+
+    public String getEmpresaAseguradora() {
+        return empresaAseguradora;
+    }
+
+    public void setEmpresaAseguradora(String empresaAseguradora) {
+        this.empresaAseguradora = empresaAseguradora;
+    }
+
+    public Double getCoberturaMax() {
+        return coberturaMax;
+    }
+
+    public void setCoberturaMax(Double coberturaMax) {
+        this.coberturaMax = coberturaMax;
+    }
+
+    public Double getTarifa() {
+        return tarifa;
+    }
+
+    public void setTarifa(Double tarifa) {
+        this.tarifa = tarifa;
+    }
 }
