@@ -23,8 +23,11 @@
             <input type="number" class="form-control" id="kilometraje" name="kilometraje" placeholder="Ingrese el kilometraje total">
         </div>
         <div class="mb-3">
-            <label for="sede" class="form-label">Sede:</label>
-            <input class="form-control" id="sede" name="sede" placeholder="Ingrese la sede a la que pertenece el auto">
+            <label class="form-label" for="sede">Sede:</label>
+            <select class="form-select" id="sede" name="sede">
+                <option value="" disabled selected>Seleccione una sede</option>
+                <option th:each="sede : ${sedes}" th:value="${sede.id}" th:text="${sede.id}"></option>
+            </select>
         </div>
         <div class="mb-3">
             <label for="costoDia" class="form-label">Costo diario:</label>

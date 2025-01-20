@@ -2,11 +2,20 @@ package com.example.rentaautos.Entity;
 
 
 public class Auto {
+    private Integer id;
     private String modelo;
     private String color;
     private int kilometraje;
-    private String sede;
+    private Integer sede;
     private Double costoDia;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getModelo() {
         return modelo;
@@ -32,11 +41,11 @@ public class Auto {
         this.kilometraje = kilometraje;
     }
 
-    public String getSede() {
+    public Integer getSede() {
         return sede;
     }
 
-    public void setSede(String sede) {
+    public void setSede(Integer sede) {
         this.sede = sede;
     }
 

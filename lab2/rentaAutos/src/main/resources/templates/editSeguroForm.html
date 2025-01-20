@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario edición de seguros</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h2 class="mb-3">Información del seguro</h2>
+    <form action="/saveChangesSeguro" method="post">
+        <input type="hidden" th:value="${seguro.id}" name="id">
+        <div class="mb-3">
+            <label for="empresaAseguradora" class="form-label">Empresa:</label>
+            <input th:value="${seguro.empresaAseguradora}" class="form-control" id="empresaAseguradora" name="empresaAseguradora" placeholder="Ingrese la empresa aseguradora">
+        </div>
+        <div class="mb-3">
+            <label for="coberturaMax" class="form-label">Cobertura:</label>
+            <input th:value="${seguro.coberturaMax}" type="number" class="form-control" id="coberturaMax" name="coberturaMax" placeholder="Ingrese la cobertura máxima del seguro">
+        </div>
+        <div class="mb-3">
+            <label for="tarifa" class="form-label">Tarifa:</label>
+            <input th:value="${seguro.tarifa}" type="number" class="form-control" id="tarifa" name="tarifa" placeholder="Ingrese el precio del seguro">
+        </div>
+        <button type="submit" class="btn btn-outline-primary">Guardar</button>
+    </form>
+</div>
+
+</body>
+</html>
