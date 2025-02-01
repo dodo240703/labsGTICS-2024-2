@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de recetas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-3">
+    <h1 th:text="${esEdicion} ? 'Editar Receta' : 'Nueva Receta'"></h1>
+</div>
+<div class="container mt-3">
+    <form action="/cocina/saveReceta" method="post" th:object="${receta}">
+        <div class="mb-3">
+            <label class="form-label" th:for="*{idcategoria}">Categoría:</label>
+            <select class="form-select" th:field="*{idcategoria}">
+                <option value="" disabled selected>Seleccione una categoría</option>
+                <option th:each="categorias : ${listaCategorias}" th:value="${categorias.id}" th:text="${categorias.categoria}"></option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label th:for="*{nombre}" class="form-label">Nombre:</label>
+            <input class="form-control" th:field="*{nombre}" placeholder="Ingrese el nombre de la receta">
+        </div>
+        <div class="mb-3">
+            <label th:for="*{instrucciones}" class="form-label">Instrucciones:</label>
+            <textarea class="form-control" th:field="*{instrucciones}" placeholder="Ingrese las instrucciones de preparación"></textarea>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" th:for="*{dificultad}">Dificultad:</label>
+            <select class="form-select" th:field="*{dificultad}">
+                <option value="" disabled selected>Seleccione una dificultad (del 1 al 5)</option>
+                <option th:value="1">1 (Muy Fácil)</option>
+                <option th:value="2">2 (Fácil)</option>
+                <option th:value="3">3 (Normal)</option>
+                <option th:value="4">4 (Difícil)</option>
+                <option th:value="5">5 (Muy Difícil)</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label th:for="*{tiempoPreparacion}" class="form-label">Tiempo de preparación:</label>
+            <input class="form-control" th:field="*{tiempoPreparacion}" placeholder="Ingrese el tiempo de preparación de la receta">
+        </div>
+        <button type="submit" class="btn btn-outline-primary">Agregar</button>
+    </form>
+
+</div>
+
+</body>
+</html>

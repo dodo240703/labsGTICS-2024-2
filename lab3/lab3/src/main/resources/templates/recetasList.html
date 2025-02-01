@@ -11,8 +11,9 @@
 <header th:replace="~{fragment/navbar :: nav_bar}"></header>
 -->
 <div class="container mt-3">
-    <a href="#" class="btn btn-outline-success"> Agregar</a>
+    <a href="/cocina/nuevaReceta" class="btn btn-outline-success"> Agregar</a>
 </div>
+<div th:if="${mensaje != null}" th:text="${mensaje}" class="alert alert-success" role="alert"></div>
 <div class="container mt-3">
     <h1>Lista de recetas</h1>
     <table class="table table-bordered table-hover">
@@ -30,7 +31,7 @@
             <td th:text="${receta.nombre}"></td>
             <td th:text="${receta.tiempoPreparacion}"></td>
             <td><a class="btn btn-outline-info">Ver</a></td>
-            <td><a class="btn btn-outline-warning">Editar</a></td>
+            <td><a th:href="@{'/cocina/editarReceta?id=' + ${receta.id}}" class="btn btn-outline-warning">Editar</a></td>
             <td>
                 <form action="#" method="post">
                     <!--

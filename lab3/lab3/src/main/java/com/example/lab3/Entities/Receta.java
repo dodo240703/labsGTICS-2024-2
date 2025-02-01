@@ -33,4 +33,51 @@ public class Receta {
     @Column(name = "tiempo_preparacion")
     private LocalTime tiempoPreparacion;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Categoria getIdcategoria() {
+        return idcategoria;
+    }
+
+    public void setIdcategoria(Categoria idcategoria) {
+        this.idcategoria = idcategoria;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getInstrucciones() {
+        return instrucciones;
+    }
+
+    public void setInstrucciones(String instrucciones) {
+        this.instrucciones = instrucciones;
+    }
+
+    public Integer getDificultad() {
+        return dificultad;
+    }
+
+    public void setDificultad(Integer dificultad) {
+        this.dificultad = dificultad;
+    }
+
+    public LocalTime getTiempoPreparacion() {
+        return tiempoPreparacion;
+    }
+
+    public void setTiempoPreparacion(LocalTime tiempoPreparacion) {
+        this.tiempoPreparacion = tiempoPreparacion;
+    }
 }
