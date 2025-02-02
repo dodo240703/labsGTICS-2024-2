@@ -12,6 +12,7 @@
 </div>
 <div class="container mt-3">
     <form action="/cocina/saveReceta" method="post" th:object="${receta}">
+        <input type="hidden" th:value="${receta.id}" name="id">
         <div class="mb-3">
             <label class="form-label" th:for="*{idcategoria}">Categoría:</label>
             <select class="form-select" th:field="*{idcategoria}">

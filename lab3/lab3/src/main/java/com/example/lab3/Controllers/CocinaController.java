@@ -68,4 +68,14 @@ public class CocinaController {
 
     }
 
+    @PostMapping("/deleteReceta")
+    public String borrarReceta(@RequestParam("id") int id,
+                               RedirectAttributes redirectAttributes){
+
+        recetaRepository.deleteById(id);
+        redirectAttributes.addFlashAttribute("mensaje","Receta borrada exitosamente");
+        return "redirect:/cocina/recetas";
+
+    }
+
 }
