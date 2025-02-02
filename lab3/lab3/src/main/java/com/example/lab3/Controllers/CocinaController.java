@@ -18,7 +18,7 @@ import java.util.Optional;
 public class CocinaController {
 
     @Autowired
-    private ReceetaRepository receetaRepository;
+    private ReceetaRepository recetaRepository;
 
     @Autowired
     private CategoriaRepository categoriaRepository;
@@ -26,7 +26,7 @@ public class CocinaController {
     //Listado de recetas
     @GetMapping ("/recetas")
     public String recetas(Model model){
-        List<Receta> listaRecetas = receetaRepository.findAll();
+        List<Receta> listaRecetas = recetaRepository.findAll();
         model.addAttribute("listaRecetas", listaRecetas);
         return "recetasList";
     }
@@ -44,7 +44,7 @@ public class CocinaController {
     public String editarReceta(@ModelAttribute("receta") Receta receta,
                                Model model, @RequestParam("id") int id){
 
-        Optional<Receta> recetaOptional = receetaRepository.findById(id);
+        Optional<Receta> recetaOptional = recetaRepository.findById(id);
         if(recetaOptional.isPresent()){
             receta = recetaOptional.get();
             model.addAttribute("receta", receta);
@@ -63,7 +63,7 @@ public class CocinaController {
         }else {
             redirectAttributes.addFlashAttribute("mensaje", "Receta actualizada exitosamente");
         }
-        receetaRepository.save(receta);
+        recetaRepository.save(receta);
         return "redirect:/cocina/recetas";
 
     }
