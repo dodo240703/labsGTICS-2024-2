@@ -22,6 +22,10 @@ public class RecetaIngrediente {
     @JoinColumn(name = "idingrediente", nullable = false)
     private Ingrediente idingrediente;
 
+    @ManyToOne
+    @JoinColumn(name = "idunidad_medida", nullable = false)
+    private UnidadMedida idunidadMedida;
+
     @Column(name = "cantidad")
     private Double cantidad;
 

@@ -20,7 +20,7 @@ public class Nutricion {
     @Column(name = "grasas")
     private Double grasas;
 
-    @Column(name = "`proteinas`")
+    @Column(name = "proteinas")
     private Double proteinas;
 
     @Column(name = "carbohidratos")
@@ -28,5 +28,10 @@ public class Nutricion {
 
     @Column(name = "fibra")
     private Double fibra;
+
+    @ManyToOne
+    @JoinColumn(name = "idreceta", nullable = false)
+    private Receta receta;
+
 
 }

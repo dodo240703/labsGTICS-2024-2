@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -32,6 +33,9 @@ public class Receta {
 
     @Column(name = "tiempo_preparacion")
     private LocalTime tiempoPreparacion;
+
+    @OneToMany(mappedBy = "idreceta")
+    private List<RecetaIngrediente> recetaIngredientes;
 
 
 

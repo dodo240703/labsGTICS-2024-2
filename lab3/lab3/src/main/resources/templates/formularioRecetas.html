@@ -41,9 +41,10 @@
         </div>
         <div class="mb-3">
             <label th:for="*{tiempoPreparacion}" class="form-label">Tiempo de preparación:</label>
-            <input class="form-control" th:field="*{tiempoPreparacion}" placeholder="Ingrese el tiempo de preparación de la receta">
+            <input type="time" step="60" class="form-control" th:field="*{tiempoPreparacion}" placeholder="Ingrese el tiempo de preparación de la receta">
         </div>
-        <button type="submit" class="btn btn-outline-primary">Agregar</button>
+        <button type="submit" class="btn btn-outline-primary">Guardar</button>
+        <a href="/cocina/recetas" class="btn btn-outline-primary">Cancelar</a>
     </form>
 
 </div>

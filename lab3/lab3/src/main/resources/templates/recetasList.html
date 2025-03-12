@@ -21,6 +21,48 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     <h1>Lista de recetas</h1>
+
+    <form class="mt-3 mb-3" action="/cocina/filtrado" method="get">
+        <div class="row align-items-start">
+            <!-- Búsqueda por nombre -->
+            <div class="col mb-3">
+                <input type="text" class="form-control" name="nombreReceta" placeholder="Buscar por nombre" th:value="${param.nombreReceta}">
+            </div>
+
+            <!-- Filtro por categoría -->
+            <div class="col mb-3">
+                <select class="form-select" name="categoriaReceta">
+                    <option value="" selected>Seleccione una categoría</option>
+                    <option th:each="categorias : ${listaCategorias}"
+                            th:value="${categorias.id}"
+                            th:text="${categorias.categoria}"
+                            th:selected="${param.categoriaReceta == categorias.id}">
+                    </option>
+                </select>
+            </div>
+
+            <!-- Selección del criterio de ordenación -->
+            <div class="col mb-3">
+                <select class="form-select" name="sortBy">
+                    <option value="dificultad" th:selected="${param.sortBy == 'dificultad'}">Ordenar por Dificultad</option>
+                    <option value="ingredientes" th:selected="${param.sortBy == 'ingredientes'}">Ordenar por Cantidad de Ingredientes</option>
+                </select>
+            </div>
+
+            <!-- Orden Ascendente / Descendente -->
+            <div class="col mb-3">
+                <select class="form-select" name="sort">
+                    <option value="asc" th:selected="${param.sort == 'asc'}">Ascendente</option>
+                    <option value="desc" th:selected="${param.sort == 'desc'}">Descendente</option>
+                </select>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-outline-primary">Filtrar</button>
+        <a class="btn btn-outline-primary" href="/cocina/recetas">Limpiar filtros</a>
+    </form>
+
+
     <table class="table table-bordered table-hover">
         <thead>
         <tr>
@@ -35,7 +77,7 @@
         <tr th:each="receta : ${listaRecetas}">
             <td th:text="${receta.nombre}"></td>
             <td th:text="${receta.tiempoPreparacion}"></td>
-            <td><a class="btn btn-outline-info">Ver</a></td>
+            <td><a th:href="@{'/cocina/detallesReceta?id=' + ${receta.id}}" class="btn btn-outline-info">Ver</a></td>
             <td><a th:href="@{'/cocina/editarReceta?id=' + ${receta.id}}" class="btn btn-outline-warning">Editar</a></td>
             <td>
                 <form action="/cocina/deleteReceta" method="post">
